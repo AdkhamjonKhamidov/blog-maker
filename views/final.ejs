@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+
+</head>
+
+<body class="my-background-color-l">
+    <% if(locals.title) { %>
+        <h1 class="my-text-color-d"><span class="center-title">
+                <%= locals.title %>
+            </span>
+            <% } else { %>
+                <h1 class="my-text-color-d"><span class="center-title">Title</span>
+                    <% } %>
+                </h1>
+                </div>
+                <% if(locals.opening && locals.opening !=="NONE" || locals.imageLocation && locals.imageLocation
+                    !=='/assets/Placeholder.svg' ) { %>
+                    <div class="display-opening center-stuff">
+                        <div class="opening-text">
+                            <% if (locals.imageLocation && locals.imageLocation !=="/assets/Placeholder.svg" ) {%>
+                                <img src=<%=locals.imageLocation %> class="photo" alt="user uploaded image">
+                                <% } %>
+                            <p class="my-text-color-d center-text">
+                                <%= locals.opening %>
+                            </p>
+                        </div>
+                    </div>
+                    <% } %>
+                        <div class="header-one center-stuff">
+                            <% let validHeaderOne=locals.subHeaderOne && locals.subHeaderOne !=="Sub-header" ; let
+                                validContentOne=locals.contentOne && locals.contentOne !=="NONE" ; if(validHeaderOne ||
+                                validContentOne) { %>
+                                <div class="display-content">
+                                    <% if(validHeaderOne) { %>
+                                        <h2 class="my-text-color-d center-text">
+                                            <%=locals.subHeaderOne%>
+                                        </h2>
+                                        <% } %>
+                                            <% if(validContentOne) { %>
+                                                <p class="my-text-color-d">
+                                                    <%=locals.contentOne%>
+                                                </p>
+                                                <% } %>
+                                </div>
+                                <% } %>
+                        </div>
+                        <div class="header-two center-stuff">
+                            <% let validHeaderTwo=locals.subHeaderTwo && locals.subHeaderTwo !=="Sub-header" ; let
+                                validContentTwo=locals.contentTwo && locals.contentTwo !=="NONE" ; if(validHeaderTwo ||
+                                validContentTwo) { %>
+                                <div class="display-content">
+                                    <% if(validHeaderTwo) { %>
+                                        <h2 class="my-text-color-d center-text">
+                                            <%=locals.subHeaderTwo%>
+                                        </h2>
+                                        <% } %>
+                                            <% if(validContentTwo) { %>
+                                                <p class="my-text-color-d">
+                                                    <%=locals.contentTwo%>
+                                                </p>
+                                                <% } %>
+                                </div>
+                                <% } %>
+                        </div>
+                        <hr style="border: 2px solid #405D72;">
+                        <% if(locals.closing && locals.closing !=="Call to action" ) { %>
+                            <p class="my-text-color-d" style="width: 100%; text-align: center;">
+                                <%=locals.closing%>
+                            </p>
+                            <%} %>
+
+                                <script
+                                    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+                                    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+                                    crossorigin="anonymous"></script>
+</body>
+
+</html>

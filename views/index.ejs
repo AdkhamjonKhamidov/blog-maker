@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+
+</head>
+
+<body class="my-background-color-l">
+    <% if(locals.title) { %>
+        <h1 class="my-text-color-d"><span class="center-title">
+                <%= locals.title %>
+            </span>
+            <% } else { %>
+                <h1 class="my-text-color-d"><span class="center-title">Title</span>
+                    <% } %>
+                        <div class="title center-stuff">
+                            <form action="/submit-title" method="POST">
+                                <input class="button-input" type="text" name="userInput"
+                                    placeholder="Type something here..." required>
+                                <button class="my-button" type="submit">Save title</button>
+                            </form>
+                </h1>
+                </div>
+                <hr style="border: 2px solid #405D72;">
+                <% if(locals.opening && locals.opening !=="NONE" || locals.imageLocation && locals.imageLocation
+                    !=='/assets/Placeholder.svg' ) { %>
+
+                    <div class="display-opening">
+                        <div class="opening-text">
+                            <p class="my-text-color-d">
+                                <%= locals.opening %>
+                            </p>
+                        </div>
+                        <div class="image <% if(!(locals.imageLocation)) { %> disapear <% } %>">
+                            <% if (locals.imageLocation !=="/assets/Placeholder.svg" ) {%>
+                                <img src=<%=locals.imageLocation %> class="photo" alt="user uploaded image">
+                                <% } else { %>
+                                    <img src=<%=locals.imageLocation %> class="photo" alt="placeholder">
+                                    <% } %>
+                        </div>
+                    </div>
+                    <% } else%>
+                        <div class="opening-photo center-stuff">
+                            <div class="opening">
+                                <% { %>
+                                    <p class="my-text-color-d opening-p">Opening</p>
+                                    <% } %>
+                                        <form action="/submit-opening" method="POST" class="custom-form"> <textarea
+                                                class="button-input opening-input" type="text" name="userInput"
+                                                placeholder="Type something here..." required></textarea>
+                                            <button class="my-button" type="submit">Save opening</button>
+                                        </form>
+                            </div>
+                            <div class="photo center-stuff">
+                                <div class="form-image">
+                                    <form action="/upload-photo" method="POST" enctype="multipart/form-data">
+                                        <label for="photo-upload" class="my-text-color-d">Choose a photo to
+                                            upload:</label>
+                                        <input type="file" id="photo-upload" name="photo" class="my-text-color-d"
+                                            accept=".jpeg, .jpg, .png">
+                                        <button class="my-button" type="submit">Upload</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <hr style="border: 2px solid #405D72;">
+
+                        <div class="header-one center-stuff">
+                            <% let validHeaderOne =locals.subHeaderOne && locals.subHeaderOne !=="Sub-header" ; let
+                                validContentOne=locals.contentOne && locals.contentOne !=="NONE" ; if(validHeaderOne ||
+                                validContentOne) { %>
+                                <div class="display-content">
+                                    <% if(validHeaderOne) { %>
+                                        <h2 class="my-text-color-d center-text">
+                                            <%=locals.subHeaderOne%>
+                                        </h2>
+                                        <% } %>
+                                            <% if(validContentOne) { %>
+                                                <p class="my-text-color-d">
+                                                    <%=locals.contentOne%>
+                                                </p>
+                                                <% } %>
+                                </div>
+                                <% } %>
+                                    <div class="sub-header-content">
+                                        <div class="sub-header center-stuff">
+                                            <h2 class="my-text-color-d"><span
+                                                    style="display: flex; justify-content: center; padding-top: 0; padding-bottom: 5px;">
+                                                    <% if(!locals.subHeaderOne || locals.subHeaderOne==="Sub-header" ) {
+                                                        %>
+                                                        Sub-header <% } %>
+                                                </span>
+                                                <form action="/submit-subheader1" method="POST">
+                                                    <input class="button-input" type="text" name="userInput"
+                                                        placeholder="Type something here..." required>
+                                                    <button class="my-button" type="submit">Save sub-header</button>
+                                                </form>
+                                            </h2>
+                                        </div>
+                                        <div class="content">
+                                            <p class="my-text-color-d" style="width: 100%; text-align: center;">Content
+                                            </p>
+                                            <form action="/submit-content1" method="POST" class="custom-form">
+                                                <textarea class="button-input" style="width: 500px; height: 200px;"
+                                                    type="text" name="userInput" placeholder="Type something here..."
+                                                    required></textarea>
+                                                <button class="my-button" type="submit">Save content</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                        </div>
+                        <hr style="border: 2px solid #405D72;">
+                        <div class="header-two center-stuff">
+                            <% let validHeaderTwo=locals.subHeaderTwo && locals.subHeaderTwo !=="Sub-header" ; let
+                                validContentTwo=locals.contentTwo && locals.contentTwo !=="NONE" ; if(validHeaderTwo ||
+                                validContentTwo) { %>
+                                <div class="display-content">
+                                    <% if(validHeaderTwo) { %>
+                                        <h2 class="my-text-color-d center-text">
+                                            <%=locals.subHeaderTwo%>
+                                        </h2>
+                                        <% } %>
+                                            <% if(validContentTwo) { %>
+                                                <p class="my-text-color-d">
+                                                    <%=locals.contentTwo%>
+                                                </p>
+                                                <% } %>
+                                </div>
+                                <% } %>
+                                    <div class="sub-header-content">
+                                        <div class="sub-header center-stuff">
+                                            <h2 class="my-text-color-d"><span
+                                                    style="display: flex; justify-content: center; padding-top: 0; padding-bottom: 5px;">
+                                                    <% if(!locals.subHeaderTwo || locals.subHeaderTwo==="Sub-header" ) {
+                                                        %>
+                                                        Sub-header <% } %>
+                                                </span>
+                                                <form action="/submit-subheader2" method="POST">
+                                                    <input class="button-input" type="text" name="userInput"
+                                                        placeholder="Type something here..." required>
+                                                    <button class="my-button" type="submit">Save sub-header</button>
+                                                </form>
+                                            </h2>
+                                        </div>
+                                        <div class="content">
+                                            <p class="my-text-color-d" style="width: 100%; text-align: center;">Content
+                                            </p>
+                                            <form action="/submit-content2" method="POST" class="custom-form">
+                                                <textarea class="button-input" style="width: 500px; height: 200px;"
+                                                    type="text" name="userInput" placeholder="Type something here..."
+                                                    required></textarea>
+                                                <button class="my-button" type="submit">Save content</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                        </div>
+                        <hr style="border: 2px solid #405D72;">
+
+
+                        <% if(locals.closing && locals.closing !=="Call to action") { %> 
+                            <p class="my-text-color-d" style="width: 100%; text-align: center;"><%=locals.closing%></p>
+                        <%} %>
+                        <div class="closing">
+                            <p class="my-text-color-d" style="width: 100%; text-align: center;">Call to action</p>
+                            <form action="/submit-closing" method="POST" class="custom-form">
+                                <textarea class="button-input" style="width: 500px; height: 200px;" type="text"
+                                    name="userInput" placeholder="Type something here..." required></textarea>
+                                <button class="my-button" type="submit">Save call to action</button>
+                            </form>
+                        </div>
+                        <%- include("templates/sidebar.ejs") %>
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+                            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+                            crossorigin="anonymous"></script>
+</body>
+
+</html>

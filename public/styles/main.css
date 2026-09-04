@@ -1,0 +1,90 @@
+.my-text-color-d { 
+    color: #405D72
+}
+.my-border-color-d {
+    border-color: #405D72
+}
+.my-background-color-l {
+    background-color:#FFF8F3 
+}
+
+.center-title {
+    display: flex; 
+    justify-content: center; 
+    text-align: center;
+    padding: 5px;
+}
+.opening-p{
+    width: 100% !important; 
+    text-align: center !important;
+}
+.center-stuff {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+}
+.opening{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.button-input{
+    border: 1px solid #405D72;
+    color:#405D72;
+}
+.my-button{
+    background-color: #FFF8F3;
+    color:#405D72;
+    border: 1px solid #405D72;
+}
+.photo {
+    width: 50%;
+    padding-top: 25px;
+    float: right;
+    margin-left: 5px;
+}
+.custom-form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.image {
+    flex: 1;
+    padding-left: 5%;
+}
+.form-image{
+    width: 50%;
+}
+.opening-input {
+    width: 500px;
+    min-height: 255px;
+}
+
+.display-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 50%;
+}
+.center-text {
+    width: 100%;
+}
+.closing {
+    padding-bottom: 20px;
+}
+.display-opening {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    min-height: 200px;
+}
+.opening-text {
+    width: 50%;
+}
+.disapear {
+    display: none;
+}
